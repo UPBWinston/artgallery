@@ -37,9 +37,13 @@ class Art
     #[ORM\OneToMany(mappedBy: 'Art', targetEntity: SaleEventEntry::class, orphanRemoval: true)]
     private Collection $saleEventEntries;
 
+    #[ORM\OneToMany(mappedBy: 'art', targetEntity: Order::class)]
+    private Collection $orders;
+
     public function __construct()
     {
         $this->saleEventEntries = new ArrayCollection();
+        $this->orders = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -152,5 +156,35 @@ class Art
     public function __toString(): string
     {
         return "\"".$this->getTitle() ."\" by ". $this->getArtist();
+    }
+
+    /**
+     * @return Collection<int, Order>
+     */
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function addOrder(Order $order): self
+    {
+        if (!$this->orders->contains($order)) {
+            $this->orders->add($order);
+            $order->setArt($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrder(Order $order): self
+    {
+        if ($this->orders->removeElement($order)) {
+            // set the owning side to null (unless already changed)
+            if ($order->getArt() === $this) {
+                $order->setArt(null);
+            }
+        }
+
+        return $this;
     }
 }
