@@ -9,16 +9,17 @@
 
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Year</th>
-                <th>Price</th>
-                <th>IsAvailable</th>
-                <th>Artist</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Year</th>
+            <th>Price</th>
+            <th>Sale Event</th>
+            <th>IsAvailable</th>
+            <th>Artist</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for art in art %}
@@ -28,15 +29,13 @@
                 <td>{{ art.description }}</td>
                 <td>{{ art.year }}</td>
                 <td>{{ art.price }}</td>
+                <td>{{ saleEvent }}</td>
                 <td>{{ art.isAvailable ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ path('app_artist_show', {'id': art.artist.id}) }}">{{ art.artist }}</a>
                 </td>
                 <td>
                     <a href="{{ path('app_art_show', {'id': art.id}) }}">show</a>
-                    {% if 'ROLE_SALES' in userRoles %}
-                        <a href="{{ path('app_art_edit', {'id': art.id}) }}">edit</a>
-                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -47,7 +46,4 @@
         </tbody>
     </table>
 
-    {% if 'ROLE_SALES' in userRoles %}
-        <a href="{{ path('app_art_new') }}">Create new</a>
-    {% endif %}
 {% endblock %}

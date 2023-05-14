@@ -17,6 +17,14 @@
             {% endif %}
             {% if 'ROLE_SALES' in userRoles %}
                 <li>
+                    <a href="{{ path('app_sale_event_entry_index') }}">
+                        sale event entry
+                    </a>
+
+                </li>
+            {% endif %}
+            {% if 'ROLE_SALES' in userRoles or 'ROLE_CUSTOMER' in userRoles %}
+                <li>
                     <a href="{{ path('app_art_index') }}">
                         art
                     </a>
@@ -34,11 +42,11 @@
                     </a>
 
                 </li>
-                <li>
-                    <a href="{{ path('app_sale_event_entry_index') }}">
-                        sale event entry
-                    </a>
 
+                <li>
+                    <a href="{{ path('app_order_index') }}">
+                        orders
+                    </a>
                 </li>
             {% endif %}
             <li>

@@ -5,36 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df27a439-2517-4197-aaa3-2693040bbc13" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/default/nav.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/art/artlist.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ArtController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ArtController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ArtistController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ArtistController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/art/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/art/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SaleEventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SaleEventController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/art/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/art/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/art/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/art/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/art/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/art/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/artist/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/artist/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/artist/edit.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/artist/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/artist/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/artist/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/artist/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/artist/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/artist/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/default/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/order/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/order/edit.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/order/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/order/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/order/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/order/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/order/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/order/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sale_event/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sale_event/edit.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/sale_event/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sale_event/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sale_event/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sale_event/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/sale_event/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sale_event/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sale_event_entry/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sale_event_entry/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sale_event_entry/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sale_event_entry/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sale_event_entry/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sale_event_entry/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sale_event_entry/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sale_event_entry/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,6 +213,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mikot\OneDrive\Desktop\artgallery\crud_test\templates\art" />
       <recent name="C:\Users\mikot\OneDrive\Desktop\artgallery\crud_test\templates" />
     </key>
   </component>
@@ -246,7 +235,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1684058279235</updated>
-      <workItem from="1684058279238" duration="7237000" />
+      <workItem from="1684058279238" duration="15793000" />
     </task>
     <servers />
   </component>

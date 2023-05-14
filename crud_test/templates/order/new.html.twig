@@ -7,7 +7,13 @@
 
     <h1>Create new Order</h1>
 
-    {{ include('order/_form.html.twig') }}
+    <form>
+        <input type="text" value="{{ user }}" readonly>
+
+
+        <button class="btn">{{ button_label|default('Create') }}</button>
+    </form>
+
 
     <a href="{{ path('app_order_index') }}">back to list</a>
 {% endblock %}

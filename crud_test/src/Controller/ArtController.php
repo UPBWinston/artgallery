@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-#[IsGranted('ROLE_SALES')]
 
 #[Route('/art')]
 class ArtController extends AbstractController
@@ -21,10 +20,35 @@ class ArtController extends AbstractController
     {
         return $this->render('art/index.html.twig', [
             'art' => $artRepository->findAll(),
+            'userRoles' => $this->getUser()->getRoles()
+        ]);
+    }
+
+    #[Route('/artlist', name: 'app_art_artlist', methods: ['GET'])]
+    #[IsGranted('ROLE_CUSTOMER')]
+    public function artlist(ArtRepository $artRepository): Response
+    {
+        $allArt = $artRepository->findAll();
+        $artForSaleEvent = [];
+        $saleEvet = '';
+        foreach ($allArt as $art){
+            foreach ($art->getSaleEventEntries() as $entry){
+                if($entry->getSaleEvent()->getId() == $_GET["saleEventId"]){
+                    $artForSaleEvent[] = $art;
+                    $saleEvent = $entry->getSaleEvent()->getName();
+                }
+            }
+        }
+
+        return $this->render('art/artlist.html.twig', [
+            'art' => $artForSaleEvent,
+            'userRoles' => $this->getUser()->getRoles(),
+            'saleEvent' => $saleEvent,
         ]);
     }
 
     #[Route('/new', name: 'app_art_new', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_SALES')]
     public function new(Request $request, ArtRepository $artRepository): Response
     {
         $art = new Art();
@@ -48,10 +72,12 @@ class ArtController extends AbstractController
     {
         return $this->render('art/show.html.twig', [
             'art' => $art,
+            'userRoles' => $this->getUser()->getRoles(),
         ]);
     }
 
     #[Route('/{id}/edit', name: 'app_art_edit', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_SALES')]
     public function edit(Request $request, Art $art, ArtRepository $artRepository): Response
     {
         $form = $this->createForm(Art2Type::class, $art);
@@ -70,6 +96,7 @@ class ArtController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_art_delete', methods: ['POST'])]
+    #[IsGranted('ROLE_SALES')]
     public function delete(Request $request, Art $art, ArtRepository $artRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$art->getId(), $request->request->get('_token'))) {

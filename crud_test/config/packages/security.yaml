@@ -25,9 +25,10 @@ security:
 
   access_control:
     - { path: '^/user', roles: ROLE_ADMIN }
-    - { path: '^/artist', roles: ROLE_SALES }
-    - { path: '^/art', roles: ROLE_SALES }
-    - { path: '^/sales/event', roles: ROLE_SALES }
+    - { path: '^/artist', roles: [ROLE_SALES, ROLE_CUSTOMER] }
+    - { path: '^/art', roles: [ROLE_SALES, ROLE_CUSTOMER] }
+    - { path: '^/order', roles: [ROLE_SALES, ROLE_CUSTOMER] }
+    - { path: '^/sales/event', roles: [ROLE_SALES, ROLE_CUSTOMER] }
     - { path: '^/sales/evententry', roles: ROLE_SALES }
   # - { path: ^/admin, roles: ROLE_ADMIN }
   # - { path: ^/profile, roles: ROLE_USER }

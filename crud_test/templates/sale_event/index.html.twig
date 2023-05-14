@@ -9,12 +9,12 @@
 
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Date</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for sale_event in sale_events %}
@@ -23,8 +23,13 @@
                 <td>{{ sale_event.name }}</td>
                 <td>{{ sale_event.date ? sale_event.date|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_sale_event_show', {'id': sale_event.id}) }}">show</a>
-                    <a href="{{ path('app_sale_event_edit', {'id': sale_event.id}) }}">edit</a>
+                    {% if 'ROLE_CUSTOMER' in userRoles %}
+                        <a href="{{ path('app_art_artlist', {'saleEventId': sale_event.id}) }}">show art</a>
+                    {% endif %}
+                    {% if 'ROLE_SALES' in userRoles %}
+                        <a href="{{ path('app_sale_event_show', {'id': sale_event.id}) }}">show</a>
+                        <a href="{{ path('app_sale_event_edit', {'id': sale_event.id}) }}">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -34,6 +39,7 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_sale_event_new') }}">Create new</a>
+    {% if 'ROLE_SALES' in userRoles %}
+        <a href="{{ path('app_sale_event_new') }}">Create new</a>
+    {% endif %}
 {% endblock %}

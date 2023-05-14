@@ -11,8 +11,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-#[IsGranted('ROLE_SALES')]
-
 #[Route('/artist')]
 class ArtistController extends AbstractController
 {
@@ -21,10 +19,12 @@ class ArtistController extends AbstractController
     {
         return $this->render('artist/index.html.twig', [
             'artists' => $artistRepository->findAll(),
+            'userRoles' => $this->getUser()->getRoles(),
         ]);
     }
 
     #[Route('/new', name: 'app_artist_new', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_SALES')]
     public function new(Request $request, ArtistRepository $artistRepository): Response
     {
         $artist = new Artist();
@@ -48,10 +48,12 @@ class ArtistController extends AbstractController
     {
         return $this->render('artist/show.html.twig', [
             'artist' => $artist,
+            'userRoles' => $this->getUser()->getRoles(),
         ]);
     }
 
     #[Route('/{id}/edit', name: 'app_artist_edit', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_SALES')]
     public function edit(Request $request, Artist $artist, ArtistRepository $artistRepository): Response
     {
         $form = $this->createForm(Artist1Type::class, $artist);
@@ -70,6 +72,7 @@ class ArtistController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_artist_delete', methods: ['POST'])]
+    #[IsGranted('ROLE_SALES')]
     public function delete(Request $request, Artist $artist, ArtistRepository $artistRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$artist->getId(), $request->request->get('_token'))) {

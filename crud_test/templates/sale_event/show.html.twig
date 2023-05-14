@@ -26,7 +26,9 @@
 
     <a href="{{ path('app_sale_event_index') }}">back to list</a>
 
-    <a href="{{ path('app_sale_event_edit', {'id': sale_event.id}) }}">edit</a>
+    {% if 'ROLE_SALES' in userRoles %}
+        <a href="{{ path('app_sale_event_edit', {'id': sale_event.id}) }}">edit</a>
 
-    {{ include('sale_event/_delete_form.html.twig') }}
+        {{ include('sale_event/_delete_form.html.twig') }}
+    {% endif %}
 {% endblock %}

@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-#[IsGranted('ROLE_SALES')]
 
 #[Route('/sale/event')]
 class SaleEventController extends AbstractController
@@ -21,10 +20,12 @@ class SaleEventController extends AbstractController
     {
         return $this->render('sale_event/index.html.twig', [
             'sale_events' => $saleEventRepository->findAll(),
+            'userRoles' => $this->getUser()->getRoles(),
         ]);
     }
 
     #[Route('/new', name: 'app_sale_event_new', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_SALES')]
     public function new(Request $request, SaleEventRepository $saleEventRepository): Response
     {
         $saleEvent = new SaleEvent();
@@ -48,10 +49,12 @@ class SaleEventController extends AbstractController
     {
         return $this->render('sale_event/show.html.twig', [
             'sale_event' => $saleEvent,
+            'userRoles' => $this->getUser()->getRoles(),
         ]);
     }
 
     #[Route('/{id}/edit', name: 'app_sale_event_edit', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_SALES')]
     public function edit(Request $request, SaleEvent $saleEvent, SaleEventRepository $saleEventRepository): Response
     {
         $form = $this->createForm(SaleEventType::class, $saleEvent);
@@ -70,6 +73,7 @@ class SaleEventController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_sale_event_delete', methods: ['POST'])]
+    #[IsGranted('ROLE_SALES')]
     public function delete(Request $request, SaleEvent $saleEvent, SaleEventRepository $saleEventRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$saleEvent->getId(), $request->request->get('_token'))) {
