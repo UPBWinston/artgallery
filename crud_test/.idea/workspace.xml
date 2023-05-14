@@ -5,59 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df27a439-2517-4197-aaa3-2693040bbc13" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/default/no_permission.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/crud_test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/crud_test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HobbyController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/IntensityController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/MakeController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PhoneController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SaleEventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SaleEventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SaleEventEntryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SaleEventEntryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Hobby.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Intensity.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Make.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Phone.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Factory/MakeFactory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Factory/PhoneFactory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/HobbyType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Intensity1Type.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/IntensityType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/MakeType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/PhoneType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/AccessDeniedHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/AccessDeniedHandler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Util/Food.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/default/coffee.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/default/foods.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/default/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/default/home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/default/slug.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/hobby/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/hobby/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/hobby/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/hobby/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/hobby/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/hobby/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/intensity/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/intensity/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/intensity/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/intensity/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/intensity/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/intensity/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/make/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/make/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/make/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/make/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/make/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/make/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/phone/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/phone/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/phone/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/phone/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/phone/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/phone/show.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,7 +215,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1684058279235</updated>
-      <workItem from="1684058279238" duration="4729000" />
+      <workItem from="1684058279238" duration="5642000" />
     </task>
     <servers />
   </component>
