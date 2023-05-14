@@ -8,10 +8,51 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
+    <nav>
+        <ul>
+            {% if 'ROLE_ADMIN' in app.request.get('userRoles') %}
+                <li>
+                    <a href="{{ path('app_user_index') }}">
+                        user
+                    </a>
 
-    <h1> welcome </h1>
-    <p>
-        thank goodness it’s Monday”
-    </p>
+                </li>
+            {% endif %}
+            {% if 'ROLE_SALES' in app.request.get('userRoles') %}
+            <li>
+                <a href="{{ path('app_art_index') }}">
+                    art
+                </a>
+
+            </li>
+                <li>
+                    <a href="{{ path('app_artist_index') }}">
+                        artist
+                    </a>
+
+                </li>
+                <li>
+                    <a href="{{ path('app_sale_event_index') }}">
+                        sale event
+                    </a>
+
+                </li>
+                <li>
+                    <a href="{{ path('app_sale_event_entry_index') }}">
+                        sale event entry
+                    </a>
+
+                </li>
+            {% endif %}
+            <li>
+                <a href="{{ path('app_logout') }}">
+                    Log out
+                </a>
+
+            </li>
+        </ul>
+    </nav>
+    <hr>
+
 
 {% endblock %}

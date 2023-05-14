@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
+use phpDocumentor\Reflection\Types\Boolean;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,6 +24,11 @@ class UserController extends AbstractController
     public function __construct(UserPasswordHasherInterface $passwordHasher)
     {
         $this->passwordHasher = $passwordHasher;
+    }
+
+    public function isAdminUser(): bool
+    {
+        return in_array('ROLE_ADMIN', $this->getUser()->getRoles(), true);
     }
 
     #[Route('/', name: 'app_user_index', methods: ['GET'])]
