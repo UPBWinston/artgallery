@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SaleEventEntry index{% endblock %}
+
+{% block body %}
+    <h1>SaleEventEntry index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Event</th>
+                <th>Art</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sale_event_entry in sale_event_entries %}
+            <tr>
+                <td>{{ sale_event_entry.id }}</td>
+                <td>
+                    <a href="{{ path('app_sale_event_show', {'id': sale_event_entry.saleEvent.id}) }}">{{ sale_event_entry.saleEvent }}</a>
+                </td>
+                <td>
+                    <a href="{{ path('app_art_show', {'id': sale_event_entry.art.id}) }}">{{ sale_event_entry.art }}</a>
+                </td>
+                <td>
+                    <a href="{{ path('app_sale_event_entry_show', {'id': sale_event_entry.id}) }}">show</a>
+                    <a href="{{ path('app_sale_event_entry_edit', {'id': sale_event_entry.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_sale_event_entry_new') }}">Create new</a>
+{% endblock %}

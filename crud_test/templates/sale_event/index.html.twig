@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SaleEvent index{% endblock %}
+
+{% block body %}
+    <h1>SaleEvent index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sale_event in sale_events %}
+            <tr>
+                <td>{{ sale_event.id }}</td>
+                <td>{{ sale_event.name }}</td>
+                <td>{{ sale_event.date ? sale_event.date|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_sale_event_show', {'id': sale_event.id}) }}">show</a>
+                    <a href="{{ path('app_sale_event_edit', {'id': sale_event.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_sale_event_new') }}">Create new</a>
+{% endblock %}
