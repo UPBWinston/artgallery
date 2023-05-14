@@ -19,7 +19,7 @@ class DefaultController extends AbstractController
     public function home(): Response
     {
         $template = 'default/home.html.twig';
-        $args = [];
+        $args = ['userRoles' => $this->getUser()->getRoles()];
         return $this->render($template, $args);
     }
 

@@ -3,6 +3,8 @@
 {% block title %}New Art{% endblock %}
 
 {% block body %}
+    {% include 'default/nav.html.twig' %}
+
     <h1>Create new Art</h1>
 
     {{ include('art/_form.html.twig') }}

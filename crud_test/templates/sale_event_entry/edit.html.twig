@@ -3,6 +3,8 @@
 {% block title %}Edit SaleEventEntry{% endblock %}
 
 {% block body %}
+    {% include 'default/nav.html.twig' %}
+
     <h1>Edit SaleEventEntry</h1>
 
     {{ include('sale_event_entry/_form.html.twig', {'button_label': 'Update'}) }}

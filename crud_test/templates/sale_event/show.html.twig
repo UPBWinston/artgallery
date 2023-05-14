@@ -3,22 +3,24 @@
 {% block title %}SaleEvent{% endblock %}
 
 {% block body %}
+    {% include 'default/nav.html.twig' %}
+
     <h1>SaleEvent</h1>
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ sale_event.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ sale_event.name }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ sale_event.date ? sale_event.date|date('Y-m-d') : '' }}</td>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ sale_event.id }}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{ sale_event.name }}</td>
+        </tr>
+        <tr>
+            <th>Date</th>
+            <td>{{ sale_event.date ? sale_event.date|date('Y-m-d') : '' }}</td>
+        </tr>
         </tbody>
     </table>
 

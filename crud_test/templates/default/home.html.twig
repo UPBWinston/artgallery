@@ -1,16 +1,13 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}welcome!{% endblock %}
+{% include 'base.html.twig' %}
 
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
-
     <nav>
         <ul>
-            {% if 'ROLE_ADMIN' in app.request.get('userRoles') %}
+            {% if 'ROLE_ADMIN' in userRoles %}
                 <li>
                     <a href="{{ path('app_user_index') }}">
                         user
@@ -18,13 +15,13 @@
 
                 </li>
             {% endif %}
-            {% if 'ROLE_SALES' in app.request.get('userRoles') %}
-            <li>
-                <a href="{{ path('app_art_index') }}">
-                    art
-                </a>
+            {% if 'ROLE_SALES' in userRoles %}
+                <li>
+                    <a href="{{ path('app_art_index') }}">
+                        art
+                    </a>
 
-            </li>
+                </li>
                 <li>
                     <a href="{{ path('app_artist_index') }}">
                         artist
@@ -53,8 +50,7 @@
         </ul>
     </nav>
     <hr>
-
-    <h1>Welcome to our Art Gallery website</h1>
+    <h1>Welcome to our Art Gallery</h1>
 
 
 {% endblock %}

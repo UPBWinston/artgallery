@@ -3,6 +3,8 @@
 {% block title %}New SaleEvent{% endblock %}
 
 {% block body %}
+    {% include 'default/nav.html.twig' %}
+
     <h1>Create new SaleEvent</h1>
 
     {{ include('sale_event/_form.html.twig') }}
