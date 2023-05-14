@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Order;
 use App\Form\OrderType;
+use App\Repository\ArtRepository;
 use App\Repository\OrderRepository;
+use App\Repository\UserRepository;
 use GuzzleHttp\Promise\Is;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
@@ -12,13 +14,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Doctrine\Common\Collections\Criteria;
+use Psr\Log\LoggerInterface;
 
 
 #[Route('/order')]
 class OrderController extends AbstractController
 {
     #[Route('/', name: 'app_order_index', methods: ['GET'])]
-    public function index(OrderRepository $orderRepository): Response
+    public function index(OrderRepository $orderRepository, LoggerInterface $logger): Response
     {
         $ordersToShow = [];
         if (in_array('ROLE_CUSTOMER', $this->getUser()->getRoles(), true)){
@@ -37,40 +41,37 @@ class OrderController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_order_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, OrderRepository $orderRepository): Response
+    #[Route('/new', name: 'app_order_new', methods: ['GET'])]
+    #[IsGranted('ROLE_CUSTOMER')]
+    public function new(Request $request, OrderRepository $orderRepository, ArtRepository $artRepository, UserRepository $userRepository, LoggerInterface $logger): Response
     {
         $order = new Order();
-        $form = $this->createForm(OrderType::class, $order);
-        $form->handleRequest($request);
+        $findUserByUsername = new Criteria();
+        $findUserByUsername->where(Criteria::expr()->eq('username', $this->getUser()->getUserIdentifier()));
+        $order->setUser($userRepository->matching($findUserByUsername)[0]);
+        $order->setArt($artRepository->find($_GET['artId']));
+        $order->setStatus('Active');
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $orderRepository->save($order, true);
-
-            return $this->redirectToRoute('app_order_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('order/new.html.twig', [
-            'order' => $order,
-            'form' => $form,
-        ]);
+        $orderRepository->save($order, true);
+        return $this->redirectToRoute('app_order_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    #[Route('/{id}', name: 'app_order_approve', methods: ['GET'])]
-    public function show(Order $order): Response
+    #[Route('/approve', name: 'app_order_approve', methods: ['GET'])]
+    #[IsGranted('ROLE_SALES')]
+    public function approve(OrderRepository $orderRepository): Response
     {
-        return $this->render('order/show.html.twig', [
-            'order' => $order,
-        ]);
+        $order = $orderRepository->find($_GET['id']);
+        $order->setStatus('Approved');
+        $orderRepository->save($order, flush: true);
+        return $this->redirectToRoute('app_order_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    #[Route('/{id}', name: 'app_order_cancel', methods: ['POST'])]
-    public function delete(Request $request, Order $order, OrderRepository $orderRepository): Response
+    #[Route('/cancel', name: 'app_order_cancel', methods: ['GET'])]
+    public function cancel(OrderRepository $orderRepository, LoggerInterface $logger): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $order->getId(), $request->request->get('_token'))) {
-            $orderRepository->remove($order, true);
-        }
-
+        $order = $orderRepository->find($_GET['id']);
+        $order->setStatus('Canceled');
+        $orderRepository->save($order, flush: true);
         return $this->redirectToRoute('app_order_index', [], Response::HTTP_SEE_OTHER);
     }
 }

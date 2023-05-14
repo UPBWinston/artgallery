@@ -5,30 +5,64 @@
 {% block body %}
     {% include 'default/nav.html.twig' %}
 
-    <h1>Order index</h1>
+    <h1>Active Orders</h1>
 
-    <table class="table">
+    <table class="active-table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Status</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Status</th>
+            <th>Art</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
-        {% for order in orders %}
-            <tr>
-                <td>{{ order.id }}</td>
-                <td>{{ order.status }}</td>
-                <td>
-                    <a href="{{ path('app_order_show', {'id': order.id}) }}">show</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
+
+            {% for order in orders %}
+                {% if order.status == 'Active' %}
+
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.art }}</td>
+                    <td>{{ order.status }}</td>
+                    <td>
+                        {% if 'ROLE_CUSTOMER' in userRoles %}
+                            <a href="{{ path('app_order_cancel', {'id': order.id}) }}">cancel</a>
+                        {% endif %}
+                        {% if 'ROLE_SALES' in userRoles %}
+                            <a href="{{ path('app_order_approve', {'id': order.id}) }}">approve</a>
+                            <a href="{{ path('app_order_cancel', {'id': order.id}) }}">cancel</a>
+                        {% endif %}
+                    </td>
+                </tr>
+
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Inactive Orders</h1>
+    <table class="inactive-table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Art</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+                {% if order.status != 'Active' %}
+
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.art }}</td>
+                    <td>{{ order.status }}</td>
+                </tr>
+
+                {% endif %}
+
+            {% endfor %}
         </tbody>
     </table>
 {% endblock %}

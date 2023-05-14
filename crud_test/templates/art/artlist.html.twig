@@ -35,7 +35,7 @@
                     <a href="{{ path('app_artist_show', {'id': art.artist.id}) }}">{{ art.artist }}</a>
                 </td>
                 <td>
-                    <a href="{{ path('app_art_show', {'id': art.id}) }}">show</a>
+                    <a href="{{ path('app_order_new', {'artId': art.id}) }}">place order</a>
                 </td>
             </tr>
         {% else %}
