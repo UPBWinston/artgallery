@@ -66,6 +66,16 @@ class OrderController extends AbstractController
         return $this->redirectToRoute('app_order_index', [], Response::HTTP_SEE_OTHER);
     }
 
+    #[Route('/reject', name: 'app_order_reject', methods: ['GET'])]
+    #[IsGranted('ROLE_SALES')]
+    public function reject(OrderRepository $orderRepository): Response
+    {
+        $order = $orderRepository->find($_GET['id']);
+        $order->setStatus('Rejected');
+        $orderRepository->save($order, flush: true);
+        return $this->redirectToRoute('app_order_index', [], Response::HTTP_SEE_OTHER);
+    }
+
     #[Route('/cancel', name: 'app_order_cancel', methods: ['GET'])]
     public function cancel(OrderRepository $orderRepository, LoggerInterface $logger): Response
     {

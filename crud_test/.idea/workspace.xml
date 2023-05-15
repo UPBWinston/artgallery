@@ -7,11 +7,7 @@
     <list default="true" id="df27a439-2517-4197-aaa3-2693040bbc13" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/art/artlist.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/art/artlist.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/order/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/order/edit.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/order/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/order/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/order/show.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,7 +220,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1684058279235</updated>
-      <workItem from="1684058279238" duration="22566000" />
+      <workItem from="1684058279238" duration="23596000" />
     </task>
     <servers />
   </component>
