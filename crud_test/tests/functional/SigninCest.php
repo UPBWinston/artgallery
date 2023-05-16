@@ -27,6 +27,7 @@ class SigninCest
 
         $I->click('Sign in');
         $I->see("Welcome to our Art Gallery");
+        $I->dontSee('sale event entry');
     }
 
     public function testValidLoginWithSales(FunctionalTester $I)
@@ -40,5 +41,28 @@ class SigninCest
 
         $I->click('Sign in');
         $I->see("Welcome to our Art Gallery");
+    }
+
+    public function testValidLoginWithAdmin(FunctionalTester $I)
+    {
+        $loginUrl = "/login";
+        $I->amOnPage($loginUrl);
+        $I->see("Please sign in");
+
+        $I->fillField('#inputUsername', 'john');
+        $I->fillField('#inputPassword', 'doe');
+        $I->click('Sign in');
+
+        $I->see("user");
+        $I->see("log out");
+        $I->see("Welcome to our Art Gallery");
+
+        $I->dontSee("art", "a");
+        $I->dontSee("artist");
+        $I->dontSee("sale event entry");
+        $I->dontSee("orders");
+
+        $I->click('Log out');
+        $I->see('Please sign in');
     }
 }
