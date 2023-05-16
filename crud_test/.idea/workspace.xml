@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="df27a439-2517-4197-aaa3-2693040bbc13" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/functional/SigninCest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/functional/SigninCest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +205,16 @@
       <recent name="C:\Users\mikot\OneDrive\Desktop\artgallery\crud_test\templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Codeception.SigninCest.php">
+  <component name="RunManager" selected="Codeception.PlaceOrderCest.php">
+    <configuration name="CheckOrderPageCest.php" type="CodeceptionConfigurationType" factoryName="Codeception" temporary="true">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP 8.0" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <PhpTestRunnerSettings file="$PROJECT_DIR$/tests/functional/CheckOrderPageCest.php" method="" scope="File" />
+      <method v="2" />
+    </configuration>
     <configuration name="CreateArtCest.php" type="CodeceptionConfigurationType" factoryName="Codeception" temporary="true">
       <CommandLine>
         <PhpTestInterpreterSettings>
@@ -215,13 +224,22 @@
       <PhpTestRunnerSettings file="$PROJECT_DIR$/tests/functional/CreateArtCest.php" method="" scope="File" />
       <method v="2" />
     </configuration>
-    <configuration name="LoginCest.php" type="CodeceptionConfigurationType" factoryName="Codeception" temporary="true">
+    <configuration name="PlaceOrderCest.php" type="CodeceptionConfigurationType" factoryName="Codeception" temporary="true">
       <CommandLine>
         <PhpTestInterpreterSettings>
           <option name="interpreterName" value="PHP 8.0" />
         </PhpTestInterpreterSettings>
       </CommandLine>
-      <PhpTestRunnerSettings file="$PROJECT_DIR$/tests/functional/LoginCest.php" method="" scope="File" />
+      <PhpTestRunnerSettings file="$PROJECT_DIR$/tests/functional/PlaceOrderCest.php" method="" scope="File" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ShowArtDetailsAsCustomerCest.php" type="CodeceptionConfigurationType" factoryName="Codeception" temporary="true">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP 8.0" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
+      <PhpTestRunnerSettings file="$PROJECT_DIR$/tests/functional/ShowArtDetailsAsCustomerCest.php" method="" scope="File" />
       <method v="2" />
     </configuration>
     <configuration name="SigninCest.php" type="CodeceptionConfigurationType" factoryName="Codeception" temporary="true">
@@ -248,16 +266,20 @@
     </configuration>
     <list>
       <item itemvalue="Codeception.codeception.yml" />
+      <item itemvalue="Codeception.CheckOrderPageCest.php" />
       <item itemvalue="Codeception.CreateArtCest.php" />
-      <item itemvalue="Codeception.LoginCest.php" />
+      <item itemvalue="Codeception.PlaceOrderCest.php" />
+      <item itemvalue="Codeception.ShowArtDetailsAsCustomerCest.php" />
       <item itemvalue="Codeception.SigninCest.php" />
       <item itemvalue="PHPUnit.phpunit.xml.dist" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Codeception.PlaceOrderCest.php" />
+        <item itemvalue="Codeception.ShowArtDetailsAsCustomerCest.php" />
+        <item itemvalue="Codeception.CheckOrderPageCest.php" />
         <item itemvalue="Codeception.SigninCest.php" />
         <item itemvalue="Codeception.CreateArtCest.php" />
-        <item itemvalue="Codeception.LoginCest.php" />
       </list>
     </recent_temporary>
   </component>
@@ -269,7 +291,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1684058279235</updated>
-      <workItem from="1684058279238" duration="37814000" />
+      <workItem from="1684058279238" duration="49792000" />
     </task>
     <servers />
   </component>
