@@ -7,13 +7,15 @@
 
 actor: FunctionalTester
 modules:
-    enabled:
-        - Symfony:
-            app_path: 'src'
-            environment: 'test'
-#        - Doctrine2:
-#            depends: Symfony
-#            cleanup: true
-        - \App\Tests\Helper\Functional
-        - Kolyunya\Codeception\Module\MarkupValidator
+  enabled:
+    - Symfony:
+        app_path: 'src'
+    - Doctrine2:
+        depends: Symfony
+        cleanup: true
+    - PhpBrowser:
+        url: http://localhost:8000
+        browser: chrome
+    - \App\Tests\Helper\Functional
+    - Kolyunya\Codeception\Module\MarkupValidator
 
